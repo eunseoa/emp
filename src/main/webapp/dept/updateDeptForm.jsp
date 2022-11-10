@@ -51,10 +51,10 @@
 			
 			#header {
 				text-align: center;
-				margin-top:50px;
+				margin-top: 100px;
 				box-shadow: 1px 1px 1px 1px gray;
 				width: 600px;
-				height: 450px;
+				height: 400px;
 				border-radius: 20px;
 			}
 			
@@ -85,6 +85,7 @@
 		</style>
 	</head>
 	<body>
+		<jsp:include page="/inc/menu.jsp"></jsp:include>
 		<div class="container" id="header">
 			<form method="post" action="<%=request.getContextPath() %>/dept/updateDeptAction.jsp">
 				<table class="table table-borderless">
@@ -110,9 +111,6 @@
 				</div>
 			</form>
 			<br>
-			<div>
-				<jsp:include page="/inc/menu.jsp"></jsp:include>
-			</div>
 		</div>
 	</body>
 </html>

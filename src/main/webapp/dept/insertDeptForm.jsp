@@ -9,7 +9,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 		<style>
 			body {
-				background: #f5f6f7;
+				background: #f8f9fa
 			}
 			
 			.container {
@@ -18,10 +18,10 @@
 			
 			#header {
 				text-align: center;
-				margin-top:50px;
+				margin-top: 100px;
 				box-shadow: 1px 1px 1px 1px gray;
 				width: 600px;
-				height: 450px;
+				height:400px;
 				border-radius: 20px;
 			}
 			
@@ -53,6 +53,7 @@
 		</style>
 	</head>
 	<body>
+		<jsp:include page="/inc/menu.jsp"></jsp:include>
 		<div class="container" id="header">
 		<!-- msg 파라메타값이 있으면 출력 -->
 			<form action="<%=request.getContextPath()%>/dept/insertDeptAction.jsp" method="post">
@@ -84,9 +85,6 @@
 				</div>
 			</form>
 			<br>
-			<div>
-				<jsp:include page="/inc/menu.jsp"></jsp:include>
-			</div>
 		</div>
 	</body>
 </html>

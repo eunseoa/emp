@@ -14,7 +14,7 @@
 	} // 바르지않은 경로로 들어왔을시에 처음으로 돌려줌
 
 	// 2
-	// 이미 존재하는 key(dept_no)값 동일한 값이 입력되면 예외발생 -> 동일한 값이 입력되었을때 예외방지 
+	// 이미 존재하는 key(dept_no, dept_name)값 동일한 값이 입력되면 예외발생 -> 동일한 값이 입력되었을때 예외방지 
 	// 업무처리
 	Class.forName("org.mariadb.jdbc.Driver");
 	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "dmstj1004");
