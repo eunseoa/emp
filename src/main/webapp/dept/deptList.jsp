@@ -86,7 +86,7 @@
         	<form action="<%=request.getContextPath() %>/dept/deleteDept.jsp" method="post">
             	<!-- 부서목록출력(부서번호 내림차순으로 출력) -->
             <table class="table">
-             	<thead class="table-active">
+             	<thead>
 					<th>부서 번호</th>
                   	<th>부서 이름</th>
                   	<th>수정</th>

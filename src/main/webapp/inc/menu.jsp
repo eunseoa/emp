@@ -16,7 +16,7 @@
             <a class="nav-link active" href="<%=request.getContextPath()%>/index.jsp">Home</a>
             <a class="nav-link active" href="<%=request.getContextPath()%>/dept/deptList.jsp">부서관리</a>
             <a class="nav-link active" href="<%=request.getContextPath()%>/emp/empList.jsp">사원관리</a>
-            <a class="nav-link active" href="<%=request.getContextPath()%>/">연봉관리</a>
+            <a class="nav-link active" href="<%=request.getContextPath()%>/board/boardList.jsp">게시판 관리</a>
           </li>
 		</ul>
       </div>

@@ -76,6 +76,14 @@
          	a:hover, a:active {
          		text-decoration: underline;
          	}
+         	
+         	#tdNo {
+         	 width: 300px;
+         	}
+         	
+         	#tdName {
+         		width: 500px;
+         	}
       	</style>
 	</head>
 	<body>
@@ -85,18 +93,18 @@
 		<div class="container" id="header">
 			<h1>사원목록</h1>
 			<table class="table">
-				<thead class="table-active">
-					<th>사원번호</th>
-					<th>firstName</th>
-					<th>lastName</th>
+				<thead>
+					<th id="tdNo">사원번호</th>
+					<th id="tdName">firstName</th>
+					<th id="tdName">lastName</th>
 				</thead>
 			<%
 				for (Employee e : empList) {
 			%>
 					<tr>
-						<td><%=e.empNo %></td>
-						<td><a href=""><%=e.firstName %></a></td>
-						<td><%=e.lastName %></td>
+						<td id="tdNo"><%=e.empNo %></td>
+						<td id="tdName"><a href=""><%=e.firstName %></a></td>
+						<td id="tdName"><%=e.lastName %></td>
 					</tr>
 			<%
 				}

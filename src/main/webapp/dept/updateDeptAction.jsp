@@ -9,7 +9,7 @@
 	String deptName = request.getParameter("deptName");
 	
 	if (deptNo == null || deptName == null || deptNo.equals("") || deptName.equals("")) {
-		response.sendRedirect(request.getContextPath()+"/dept/updatetDeptForm.jsp");
+		response.sendRedirect(request.getContextPath()+"/dept/updateDeptForm.jsp");
 		return;
 	} // 바르지않은 경로로 들어왔을시에 처음으로 돌려줌
 	

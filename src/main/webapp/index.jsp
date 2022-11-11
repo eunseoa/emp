@@ -33,13 +33,9 @@
 			<div>
 				<ul class="nav flex-column">
   					<li class="nav-item">
-					    <a class="nav-link" href="<%=request.getContextPath()%>/dept/deptList.jsp">부서관리</a>
-					</li>
-					<li class="nav-item">
-					    <a class="nav-link" href="<%=request.getContextPath()%>/emp/empList.jsp">사원관리</a>
-					</li>
-					<li class="nav-item">
-					    <a class="nav-link" href="<%=request.getContextPath()%>/">연봉관리</a>
+					    <a class="nav-link" href="<%=request.getContextPath()%>/dept/deptList.jsp">부서 관리</a>
+					    <a class="nav-link" href="<%=request.getContextPath()%>/emp/empList.jsp">사원 관리</a>
+					    <a class="nav-link" href="<%=request.getContextPath()%>/board/boardList.jsp">게시판 관리</a>
 					</li>
 				</ul>
 			</div>

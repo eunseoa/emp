@@ -20,7 +20,7 @@
 	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "dmstj1004");
 	
 	//2-1 dept_no 중복검사
-	String sql1 = "SELECT * FROM departments WHERE dept_no = ? OR dept_name = ?"; // 입력하기전 같은 dept_no가 존재하는지 묻는 쿼리문
+	String sql1 = "SELECT * FROM departments WHERE dept_no = ? AND dept_name = ?"; // 입력하기전 같은 dept_no가 존재하는지 묻는 쿼리문
 	PreparedStatement stmt1 = conn.prepareStatement(sql1);
 	stmt1.setString(1, deptNo);
 	stmt1.setString(2, deptName);

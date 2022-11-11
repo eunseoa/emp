@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,36 +19,30 @@
 				text-align: center;
 				margin-top: 100px;
 				box-shadow: 1px 1px 1px 1px gray;
-				width: 600px;
-				height:400px;
+				width: 1000px;
+				height:700px;
 				border-radius: 20px;
 			}
-			
-			
-			input[type=text] {
-				width:450px;
-				border-right: hidden;
-				border-left: hidden;
-				border-top: hidden;
-				font-align:center;
-			}
-			
-			input:focus {
+					
+			input[type=text],  input:focus {
+				width: 100%;
+				border : hidden;
 				outline: none;
 			}
-			
-			table {
-				 border-spacing: 40px;
-				 border-collapse: separate;
-			}
-			
-			#button {
+					
+			#button, h3 {
 				text-align: center;
-				width: 460px;
+				width: 90%;
 				margin-left:auto; 
     			margin-right:auto;
 			}
 			
+			textarea {
+			    width: 100%;
+			    height: 380px;
+			    border: none;
+			    resize: none;
+			  }
 		</style>
 	</head>
 	<body>
@@ -57,36 +50,36 @@
 			<jsp:include page="/inc/menu.jsp"></jsp:include>
 		</div>
 		<div class="container" id="header">
-		<!-- msg 파라메타값이 있으면 출력 -->
-			<form action="<%=request.getContextPath()%>/dept/insertDeptAction.jsp" method="post">
+			<form action="<%=request.getContextPath() %>/board/insertBoardAction.jsp"> 
 				<table class="table table-borderless">
 					<tr>
-						<th>추가할 부서 정보를 입력해주세요.</th>
+						<th><h3><br>글쓰기</h3></th>
 					</tr>
 					<tr>
 						<td>
-							<input type="text" name="deptNo" placeholder="부서번호">
+							<input type="text" name="boardWrite" placeholder="작성자">
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="text" name="deptName" placeholder="부서이름">
+							<input type="text" name="boardPw" placeholder="비밀번호">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" name="boardTitle" placeholder="제목">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<textarea cols="100" rows="15" name="boardContent"></textarea>
 						</td>
 					</tr>
 				</table>
-						<%
-			if (request.getParameter("msg") != null) {
-		%>
-			<div><%=request.getParameter("msg") %></div>
-		<%	
-				
-			}
-		%>
 				<div class="d-grid" id="button">
-					<button type="submit" class="btn btn-outline-secondary btn-block">추가</button>
+					<button type="submit" class="btn btn-outline-secondary btn-block">작성</button>
 				</div>
 			</form>
-			<br>
 		</div>
 	</body>
 </html>
