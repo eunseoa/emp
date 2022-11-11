@@ -26,15 +26,12 @@
 			}
 			
 			
-			input[type=text] {
+			input[type=text], input:focus{
 				width:450px;
 				border-right: hidden;
 				border-left: hidden;
 				border-top: hidden;
 				font-align:center;
-			}
-			
-			input:focus {
 				outline: none;
 			}
 			

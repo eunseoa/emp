@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("utf-8");
+	String msg = request.getParameter("msg");
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,7 +24,7 @@
 				margin-top: 100px;
 				box-shadow: 1px 1px 1px 1px gray;
 				width: 1000px;
-				height:700px;
+				height:750px;
 				border-radius: 20px;
 			}
 					
@@ -55,6 +59,13 @@
 					<tr>
 						<th><h3><br>글쓰기</h3></th>
 					</tr>
+					<%
+						if (msg != null) {
+					%>
+						<div><%=msg %></div>
+					<%
+						}
+					%>
 					<tr>
 						<td>
 							<input type="text" name="boardWrite" placeholder="작성자">
@@ -72,7 +83,7 @@
 					</tr>
 					<tr>
 						<td>
-							<textarea cols="100" rows="15" name="boardContent"></textarea>
+							<textarea name="boardContent"></textarea>
 						</td>
 					</tr>
 				</table>

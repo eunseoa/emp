@@ -6,8 +6,8 @@
 	// 1. 요청분석
 	int boardNo = Integer.parseInt(request.getParameter("boardNo"));
 	int currentPage = 1; // 댓긆페이지
-	if (request.getParameter("commentPage") != null) {
-		currentPage = Integer.parseInt(request.getParameter("commentPage"));
+	if (request.getParameter("currentPage") != null) {
+		currentPage = Integer.parseInt(request.getParameter("currentPage"));
 	}
 
 	// 2. 요청 처리
@@ -32,7 +32,6 @@
 	int rowPerPage = 5; // 한 페이지당 보일 댓글의 수
 	int beginRow = (currentPage - 1) * rowPerPage; // 페이지당 LIMIT 첫번째 물음표
 	
-	
 	String commentSql = "SELECT comment_no commentNo, comment_content commentContent FROM comment WHERE board_no = ? ORDER BY comment_no DESC LIMIT ?, ?"; 
 	PreparedStatement commentStmt = conn.prepareStatement(commentSql);
 	commentStmt.setInt(1, boardNo);
@@ -47,9 +46,12 @@
 		commentList.add(c);
 	}
 	
+	
 	// 2-3. 댓글의 전체 행의 수로 lastPage구하기
-	String cntSql = "SELECT COUNT(*) cnt FROM comment";
+	// 댓글의 갯수 구하는 쿼리
+	String cntSql = "SELECT COUNT(board_no) cnt FROM comment WHERE board_no = ?";
 	PreparedStatement cntStmt = conn.prepareStatement(cntSql);
+	cntStmt.setInt(1, boardNo);
 	ResultSet cntRs = cntStmt.executeQuery();
 	int cnt = 0;
 	if (cntRs.next()) {
@@ -60,6 +62,7 @@
 	if (cnt % rowPerPage != 0) {
 		lastPage++;
 	}
+	
 	// 3. 출력
 %>
 <!DOCTYPE html>
@@ -69,89 +72,120 @@
 		<title>Insert title here</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+		<style>
+			body {
+				background: #f8f9fa
+			}
+			
+			.container {
+				background: white;
+			}
+			
+			#header {
+				margin-top: 100px;
+				box-shadow: 1px 1px 1px 1px gray;
+				width: 1500px;
+				height:100%;
+				border-radius: 20px;
+				margin-left:auto;
+    			margin-right:auto;
+			}
+			
+			table {
+				width:100%;
+				height: 100%;
+				border-spacing: 20px;
+				border-collapse: separate;
+			}
+			
+			#comment {
+				margin-left:auto;
+    			margin-right:auto;
+			}
+			 
+			textarea {
+				resize: none;
+			  }
+			  
+			 textarea:focus, input:focus {
+			 	outline: none;
+			 }
+		</style>
 	</head>
 	<body>
 		<div>
 			<jsp:include page="/inc/menu.jsp"></jsp:include>
    		</div>
-		<table class="table">
-			<tr>
-				<td>번호</td>
-				<td><%=board.boardNo %></td>
-			</tr>
-			<tr>
-				<td>제목</td>
-				<td><%=board.boardTitle %></td>
-			</tr>
-			<tr>
-				<td>내용</td>
-				<td><%=board.boardContent %></td>
-			</tr>
-			<tr>
-				<td>글쓴이</td>
-				<td><%=board.boardWrite %></td>
-			</tr>
-			<tr>
-				<td>생성날짜</td>
-				<td><%=board.createdate %></td>
-			</tr>
-			<tr>
-				<td><a href="<%=request.getContextPath() %>/board/updateBoardForm.jsp?boardNo=<%=boardNo%>">수정</a></td>
-				<td><a href="<%=request.getContextPath() %>/board/deleteBoardForm.jsp?boardNo=<%=boardNo%>">삭제</a></td>
-			</tr>
-		</table>
-		
-		<div>
-			<!-- 댓글입력폼 -->
-			<h2>댓글입력</h2>
-			<form action="<%=request.getContextPath() %>/board/insertCommentAction.jsp" method="post">
-				<input type="hidden" name ="boardNo" value="<%=board.boardNo %>">
-				<table>
-					<tr>
-						<td>내용</td>
-						<td>
-							<textarea cols="80" rows="3" name="commentContent"></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td>비밀번호</td>
-						<td>
-							<input type="password" name="commentPw">
-						</td>
-					</tr>
+   		<div class="container" id="header">
+			<table class="table">
+				<tr>
+					<th><%=board.boardTitle %>
+					<span style="float:right;"><a href="<%=request.getContextPath() %>/board/updateBoardForm.jsp?boardNo=<%=boardNo%>">수정</a>
+							<a href="<%=request.getContextPath() %>/board/deleteBoardForm.jsp?boardNo=<%=boardNo%>">삭제</a></span>
+					</th>
+				</tr>
+				<tr>
+					<td><%=board.boardWrite %> ・  <%=board.createdate %></td>
+				</tr>
+				<tr>
+					<td><%=board.boardContent %></td>
+				</tr>
+			</table>
+			
+			<div id="comment">
+				<!-- 댓글입력폼 -->
+				<form action="<%=request.getContextPath() %>/board/insertCommentAction.jsp" method="post">
+					<input type="hidden" name ="boardNo" value="<%=board.boardNo %>">
+					<table>
+						<tr>
+							<td>댓글</td>
+							<td>
+								<textarea cols="80" rows="3" name="commentContent"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<input type="password" name="commentPw" placeholder="비밀번호">
+								<button type="submit" class="btn btn-outline-secondary btn-sm">등록</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+
+			<div id="comment">
+				<table class="table">
+					<!-- 댓글 목록 -->
+					<%
+						for(Comment c : commentList) {
+					%>		
+							<tr>
+								<td><%=c.commentNo %></td>
+								<td><%=c.commentContent %></td>
+							</tr>
+					<%		
+						}
+					%>
+					<!-- 댓글 페이징 -->
+						<tr>
+						<%
+							if(currentPage > 1) {
+						%>
+								<td><a href="<%=request.getContextPath() %>/board/boardOne.jsp?boardNo=<%=boardNo %>&currentPage=<%=currentPage-1%>">이전</a></td>
+						<%
+							}
+						%>
+						<%
+							if(currentPage < lastPage) {
+						%>
+								<td><a href="<%=request.getContextPath() %>/board/boardOne.jsp?boardNo=<%=boardNo %>&currentPage=<%=currentPage+1 %>">다음</a></td>
+						<%
+							}
+						%>
+						</tr>
 				</table>
-				<button type="submit">댓글입력</button>
-			</form>
-		</div>
-		
-		<div>
-			<!-- 댓글 목록 -->
-			<h2>댓글목록</h2>
-			<%
-				for(Comment c : commentList) {
-			%>
-					<div>
-						<div><%=c.commentNo %></div>
-						<div><%=c.commentContent %></div>
-					</div>
-			<%		
-				}
-			%>
-			<!-- 댓글 페이징 -->
-			<%
-				if(currentPage > 1) {
-			%>
-					<a href="<%=request.getContextPath() %>/board/boardOne.jsp?boardNo=<%=boardNo %>&currentPage=<%=currentPage-1%>">이전</a>
-			<%
-				}
-			%>
-			<%
-				if(currentPage < lastPage) {
-			%>
-					<a href="<%=request.getContextPath() %>/board/boardOne.jsp?boardNo=<%=boardNo %>&currentPage=<%=currentPage+1 %>">다음</a>
-			<%
-				}
-			%>
+			</div>
 		</div>
 	</body>
 </html>

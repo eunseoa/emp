@@ -10,8 +10,11 @@
 	String boardTitle = request.getParameter("boardTitle");
 	String boardContent = request.getParameter("boardContent");
 
-	if ( boardPw == null || boardPw.equals("")) {
-		response.sendRedirect(request.getContextPath()+"/board/updateBoardForm.jsp");
+	if ( request.getParameter("boardTitle") == null || request.getParameter("boardPw") == null 
+			|| request.getParameter("boardContent") == null
+			|| boardTitle.equals("") || boardContent.equals("") || boardPw.equals("")) {
+		String msg = URLEncoder.encode("작성되지않은 항목이 있습니다.", "utf-8");
+		response.sendRedirect(request.getContextPath()+"/board/updateBoardForm.jsp?boardNo="+boardNo+"&msg="+msg);
 		return;
 	}
 	
@@ -40,8 +43,8 @@
 	if (row == 1) {
 		response.sendRedirect(request.getContextPath()+"/board/boardOne.jsp?boardNo="+board.boardNo);
 	} else {
-		String msg = URLEncoder.encode("틀린비밀번호입니다.", "utf-8");
-		response.sendRedirect(request.getContextPath()+"/board/deleteBoardForm.jsp?boardNo="+boardNo+"&msg="+msg);
+		String msg1 = URLEncoder.encode("틀린비밀번호입니다.", "utf-8");
+		response.sendRedirect(request.getContextPath()+"/board/updateBoardForm.jsp?boardNo="+boardNo+"&msg="+msg1);
 	}
 	
 %>

@@ -7,6 +7,7 @@
 	request.setCharacterEncoding("utf-8");
 	int boardNo = Integer.parseInt(request.getParameter("boardNo"));
 	String msg = request.getParameter("msg");
+	String msg1 = request.getParameter("msg1");
 	
 	// 2. 업무처리
 	Class.forName("org.mariadb.jdbc.Driver");
@@ -36,26 +37,73 @@
 		<title>Insert title here</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+		<style>
+			body {
+				background: #f8f9fa
+			}
+			
+			.container {
+				background: white;
+			}
+			
+			#header {
+				margin-top: 100px;
+				box-shadow: 1px 1px 1px 1px gray;
+				width: 1500px;
+				height:100%;
+				border-radius: 20px;
+				margin-left:auto;
+    			margin-right:auto;
+			}
+			
+			table {
+				width:100%;
+				height: 100%;
+				border-spacing: 20px;
+				border-collapse: separate;
+				margin-left:auto;
+    			margin-right:auto;
+			}
+			
+			textarea {
+				resize: none;
+			  }
+			  
+		</style>
 	</head>
 	<body>
 		<div>
+			<jsp:include page="/inc/menu.jsp"></jsp:include>
+   		</div>
+		<div class="container" id="header">
 			<form action="<%=request.getContextPath() %>/board/updateBoardAction.jsp">
 				<table class="table table-borderless">
+					<%
+						if (msg != null) {
+					%>
+							<div><%=msg %></div>
+					<%
+						} else if (msg1 != null) {
+					%>
+							<div><%=msg1 %>;</div>
+					<%
+						}
+					%>
 					<tr>
-						<td>no</td>
-						<td><input type="number" name="boardNo" readonly="readonly" value="<%=boardNo %>"></td>
+						<th>게시글수정</th>
+						<td><input type="hidden" name="boardNo" value="<%=boardNo %>"></td>
+					</tr>
+					<tr>
+						<td>제목</td>
+						<td><input type="text" name="boardTitle" value="<%=board.boardTitle %>"></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
 						<td><input type="text" name="boardWrite" readonly="readonly" value="<%=board.boardWrite %>"></td>
 					</tr>
 					<tr>
-						<td>제목</td>
-						<td><input type="text" name="boardTitle"value="<%=board.boardTitle %>"></td>
-					</tr>
-					<tr>
 						<td>내용</td>
-						<td><input type="text" name="boardContent" value="<%=board.boardContent %>"></td>
+						<td><textarea name="boardContent" cols="100" rows="15"><%=board.boardContent %></textarea></td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>
