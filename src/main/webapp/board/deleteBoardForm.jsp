@@ -8,8 +8,6 @@
 
 	int boardNo = Integer.parseInt(request.getParameter("boardNo"));
 	String msg = request.getParameter("msg"); // 수정 실패시 리다이렉트
-
-		
 %>
 <!DOCTYPE html>
 <html>

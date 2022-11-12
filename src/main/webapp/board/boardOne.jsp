@@ -163,6 +163,7 @@
 							<tr>
 								<td><%=c.commentNo %></td>
 								<td><%=c.commentContent %></td>
+								<td><a href="<%=request.getContextPath() %>/board/deleteCommentForm.jsp?commentNo=<%=c.commentNo %>&boardNo=<%=boardNo %>">삭제</a></td>
 							</tr>
 					<%		
 						}
