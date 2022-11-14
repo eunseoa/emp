@@ -14,13 +14,16 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 	</head>
 	<body>
 		<div>
 			<form method="post" action="<%=request.getContextPath()%>/board/deleteCommnetAction.jsp">
 				<table>
 					<tr>
-						<th>비밀번호를 입력해주세요</th>
+						<th>댓글을 삭제하시겠습니까?</th>
 					</tr>
 					<tr>
 						<td><input type="hidden" name="boardNo" value="<%=boardNo %>"></td>
@@ -29,7 +32,7 @@
 						<td><input type="hidden" name="commentNo" value="<%=commentNo%>"></td>
 					</tr>
 					<tr>
-						<td><input type="password" name="commnetPw" placeholder="비밀번호"></td>
+						<td><input type="password" name="commnetPw" placeholder="비밀번호를 입력해주세요."></td>
 					</tr>
 				</table>
 				<%

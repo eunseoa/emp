@@ -1,25 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<nav class="navbar bg-light fixed-top">
-  <div class="container-fluid">
-    <span>INDEX</span>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="<%=request.getContextPath()%>/index.jsp">INDEX</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">INDEX</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1">
-          <li class="nav-item">
-            <a class="nav-link active" href="<%=request.getContextPath()%>/index.jsp">Home</a>
-            <a class="nav-link active" href="<%=request.getContextPath()%>/dept/deptList.jsp">부서관리</a>
-            <a class="nav-link active" href="<%=request.getContextPath()%>/emp/empList.jsp">사원관리</a>
-            <a class="nav-link active" href="<%=request.getContextPath()%>/board/boardList.jsp">게시판 관리</a>
-          </li>
-		</ul>
-      </div>
-    </div>
-  </div>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="<%=request.getContextPath()%>/dept/deptList.jsp">부서 관리</a><
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%=request.getContextPath()%>/emp/empList.jsp">사원 관리</a>
+      </li>   
+      <li class="nav-item">
+        <a class="nav-link" href="<%=request.getContextPath()%>/board/boardList.jsp">게시판 관리</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%=request.getContextPath()%>/salary/salaryList1.jsp">연봉 관리</a>
+      </li>  
+    </ul>
+  </div>  
 </nav>
+<br>

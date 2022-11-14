@@ -24,7 +24,7 @@
 				margin-top: 100px;
 				box-shadow: 1px 1px 1px 1px gray;
 				width: 1000px;
-				height:750px;
+				height:700px;
 				border-radius: 20px;
 			}
 					
@@ -36,7 +36,7 @@
 					
 			#button, h3 {
 				text-align: center;
-				width: 90%;
+				width: 100%;
 				margin-left:auto; 
     			margin-right:auto;
 			}
