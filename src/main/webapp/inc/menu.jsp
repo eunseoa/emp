@@ -11,27 +11,29 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <a class="navbar-brand" href="<%=request.getContextPath()%>/index.jsp">INDEX</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="<%=request.getContextPath()%>/dept/deptList.jsp">부서 관리</a><
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%=request.getContextPath()%>/emp/empList.jsp">사원 관리</a>
-      </li>   
-      <li class="nav-item">
-        <a class="nav-link" href="<%=request.getContextPath()%>/board/boardList.jsp">게시판 관리</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%=request.getContextPath()%>/salary/salaryList1.jsp">연봉 관리</a>
-      </li>  
-    </ul>
-  </div>  
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<div class="container-fluid">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link active" href="<%=request.getContextPath()%>/index.jsp">INDEX</a>
+			</li>
+			<li class="nav-item">
+        		<a class="nav-link" href="<%=request.getContextPath()%>/dept/deptList.jsp">부서</a>
+      		</li>
+      		<li class="nav-item">
+       			<a class="nav-link" href="<%=request.getContextPath()%>/board/boardList.jsp">게시판</a>      
+     	 	</li>
+      		<li class="nav-item">
+        		<a class="nav-link" href="<%=request.getContextPath() %>/salary/salaryMapList.jsp">연봉</a>
+      		</li>
+      		<li class="nav-item dropdown">
+	  			<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">사원</a>
+	 			 <ul class="dropdown-menu">
+	    			<li><a class="dropdown-item" href="<%=request.getContextPath()%>/emp/empList.jsp">사원 관리</a></li>
+	    			<li><a class="dropdown-item" href="<%=request.getContextPath()%>/deptEmp/deptEmpList.jsp">부서별 사원</a></li>
+	  			</ul>
+			</li>
+    	</ul>
+  	</div>
 </nav>
 <br>

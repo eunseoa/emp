@@ -134,14 +134,14 @@
 				if (name == null) {
 		%>
 		        	<form action="<%=request.getContextPath() %>/emp/empList.jsp" method="post" class="search">
-		        		<input type="text" name="name" id="word" placeholder="검색어를 입력해주세요">
+		        		<input type="text" name="name" placeholder="검색어를 입력해주세요">
 		        		<button type="submit">검색</button>
 		        	</form>
 		<%
 				} else {
 	    %>
 		        	<form action="<%=request.getContextPath() %>/emp/empList.jsp" method="post" class="search">
-		        		<input type="text" name="name" id="word" value="<%=name %>">
+		        		<input type="text" name="name" value="<%=name %>">
 		        		<button type="submit">검색</button>
 		        	</form>	
 	    <%

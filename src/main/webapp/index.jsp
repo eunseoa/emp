@@ -36,6 +36,7 @@
 					    <a class="nav-link" href="<%=request.getContextPath()%>/dept/deptList.jsp">부서 관리</a>
 					    <a class="nav-link" href="<%=request.getContextPath()%>/emp/empList.jsp">사원 관리</a>
 					    <a class="nav-link" href="<%=request.getContextPath()%>/board/boardList.jsp">게시판 관리</a>
+					    <a class="nav-link" href="<%=request.getContextPath() %>/salary/salaryMapList.jsp">연봉 관리</a>
 					</li>
 				</ul>
 			</div>
