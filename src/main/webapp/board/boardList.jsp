@@ -105,8 +105,8 @@
    		</div>
 		<div class="container" id="header">
 			<div>
-           	<h1>DEPT LIST</h1>
-        </div>
+           		<h1>게시판</h1>
+       		</div>
         	<div>
 		<%
 				if (word == null) {

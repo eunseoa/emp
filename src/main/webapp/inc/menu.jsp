@@ -27,7 +27,7 @@
         		<a class="nav-link" href="<%=request.getContextPath() %>/salary/salaryMapList.jsp">연봉</a>
       		</li>
       		<li class="nav-item dropdown">
-	  			<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">사원</a>
+	  			<a class="nav-link dropdown-toggle"role="button" data-bs-toggle="dropdown">사원</a>
 	 			 <ul class="dropdown-menu">
 	    			<li><a class="dropdown-item" href="<%=request.getContextPath()%>/emp/empList.jsp">사원 관리</a></li>
 	    			<li><a class="dropdown-item" href="<%=request.getContextPath()%>/deptEmp/deptEmpList.jsp">부서별 사원</a></li>

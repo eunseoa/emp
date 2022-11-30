@@ -103,8 +103,8 @@
    		</div>
    		<div class="container">
    			<div>
-				<h1>연봉 목록</h1>
-			</div>
+           		<h1>연봉 목록</h1>
+       		</div>
 			<div>
 			<%
 				if(name == null || name.equals("")) {

@@ -82,6 +82,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
       	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
       	<style>
@@ -101,7 +102,7 @@
    		</div>
    		<div class="container">
    			<div>
-   				<h1>DEPT EMP LIST</h1>
+   				<h1>사원별 부서</h1>
    			</div>
    			<div>
 			<%
@@ -109,19 +110,20 @@
 			%>
 					<form action="<%=request.getContextPath() %>/deptEmp/deptEmpList.jsp" method="post">
 						<input type="text" name="name">
-						<button type="submit">검색</button>
+						<button type="submit"><i class="fa fa-search"></i></button>
 					</form>
 			<%
 				} else {
 			%>
 					<form action="<%=request.getContextPath() %>/deptEmp/deptEmpList.jsp" method="post">
 						<input type="text" name="name" value="<%=name %>"> 
-						<button type="submit">검색</button>
+						<button type="submit"><i class="fa fa-search"></i></button>
 					</form>
 			<%
 				}
 			%>
-		</div>
+			</div>
+			<br>
    			<div>
 				<table class="table">
 					<tr>
