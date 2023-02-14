@@ -18,7 +18,7 @@
 	
 	// 2 요청처리 후 모델데이터 생성
 	Class.forName("org.mariadb.jdbc.Driver");
-	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "dmstj1004");
+	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
 	
 	// 검색쿼리
 	String empSql = null;

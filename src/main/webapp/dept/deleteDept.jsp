@@ -7,7 +7,7 @@
 	
 	// 업무 처리
 	Class.forName("org.mariadb.jdbc.Driver");
-	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "dmstj1004");
+	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
 	
 	// 부서를 삭제할 쿼리문
 	String sql = "DELETE FROM departments WHERE dept_no = ?";

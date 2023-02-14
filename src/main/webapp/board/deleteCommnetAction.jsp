@@ -14,7 +14,7 @@
 	
 	// 업무처리
 	Class.forName("org.mariadb.jdbc.Driver");
-	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "dmstj1004");
+	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
 	
 	// 삭제쿼리
 	String sql = "DELETE FROM comment WHERE comment_no = ? AND commnet_pw = ?";

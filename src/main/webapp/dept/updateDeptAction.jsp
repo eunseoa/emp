@@ -20,7 +20,7 @@
 	
 	// 업무처리
 	Class.forName("org.mariadb.jdbc.Driver");
-	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "dmstj1004");
+	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
 	
 	// dept_name 중복검사
 	String sql1 = "SELECT dept_name FROM departments WHERE dept_name = ?"; // 입력하기전 같은 dept_name이 존재하는지 묻는 쿼리문

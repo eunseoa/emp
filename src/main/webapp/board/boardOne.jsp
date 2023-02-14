@@ -13,7 +13,7 @@
 	// 2. 요청 처리
 	// 2-1. 게시글
 	Class.forName("org.mariadb.jdbc.Driver");
-	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "dmstj1004");
+	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
 	String boardSql ="SELECT board_title boardTitle, board_content boardContent, board_write boardWrite, createdate FROM board WHERE board_no=?";
 	PreparedStatement boardStmt = conn.prepareStatement(boardSql);
 	boardStmt.setInt(1, boardNo);

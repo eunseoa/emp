@@ -13,7 +13,7 @@
 	System.out.println("드라이버로딩 성공"); // 디버깅
 
 	// db에 접속
-	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "dmstj1004");
+	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
 	System.out.println(conn + " <-- conn"); // 디버깅
 	
 	// 접속한 db에 no, name select 쿼리를 만듦

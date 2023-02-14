@@ -19,7 +19,7 @@
 	
 	// 드라이버 로딩
 	Class.forName("org.mariadb.jdbc.Driver");
-	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "dmstj1004");
+	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
 	
 	// 게시글 내용 저장
 	String sql = "INSERT into board (board_pw, board_title, board_content, board_write, createdate) values(?, ?, ?, ?, curdate())";

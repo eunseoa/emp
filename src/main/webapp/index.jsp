@@ -24,12 +24,11 @@
 			.container {
 				background: white;
 			}
-
 		</style>
 	</head>
 	<body>
 		<div class="container" id="header">
-			<h1>INDEX</h1>
+		<button class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root  css-in6sf" tabindex="0" type="button">Details<span class="MuiTouchRipple-root css-w0pj6f"></span></button>
 			<div>
 				<ul class="nav flex-column">
   					<li class="nav-item">

@@ -14,7 +14,7 @@
 	// 업무 처리
 	// 드라이버 로딩
 	Class.forName("org.mariadb.jdbc.Driver");
-	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "dmstj1004");
+	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
 	
 	// 부서이름 수정할 쿼리
 	String sql = "SELECT dept_name deptName FROM departments WHERE dept_no=?";

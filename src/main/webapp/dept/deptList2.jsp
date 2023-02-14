@@ -12,7 +12,7 @@
    
    // 2. 업무처리(Model) -> 모델데이터(단일값 or 자료구조형태(배열, 리스트, ...))
    Class.forName("org.mariadb.jdbc.Driver");
-   Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/employees", "root", "dmstj1004");
+   Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/employees", "root", "java1234");
    
    String sql = null;
    PreparedStatement stmt = null;

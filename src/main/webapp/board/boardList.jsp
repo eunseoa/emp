@@ -16,7 +16,7 @@
 	// 2. 필요시 요청처리 후 모델데이터를 생성
 	Class.forName("org.mariadb.jdbc.Driver");
 	System.out.println("드라이버로딩 성공"); // 디버깅
-	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "dmstj1004");
+	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
 	System.out.println(conn + " <-- conn"); // 디버깅
 	
 	final int ROW_PER_PAGE = 10; // final을 붙여주면 상수가 됨 (외부에 의해 바뀔 수 없음)

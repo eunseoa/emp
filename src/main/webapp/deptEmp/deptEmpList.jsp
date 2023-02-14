@@ -16,7 +16,7 @@
 	
 	String dbUrl = "jdbc:mariadb://127.0.0.1:3306/employees";
 	String dbUser = "root";
-	String dbPw = "dmstj1004";
+	String dbPw = "java1234";
 	Class.forName("org.mariadb.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPw);
 	

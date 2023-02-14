@@ -7,7 +7,7 @@
 	int boardNo = Integer.parseInt(request.getParameter("boardNo"));
 	
 	Class.forName("org.mariadb.jdbc.Driver");
-	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "dmstj1004");
+	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
 	
 	// 댓글 등록 쿼리
 	String sql = "INSERT INTO COMMENT (board_no, commnet_pw, comment_content, createdate) VALUE (?, ?, ?, CURDATE())";
